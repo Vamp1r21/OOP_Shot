@@ -11,6 +11,10 @@ namespace OOP_Z5
         double _x;
         double _y;
 
+        public Shot()
+        {
+        }
+
         public Shot(double x, double y)
         {
             _x = x;

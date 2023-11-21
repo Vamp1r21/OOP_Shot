@@ -13,9 +13,8 @@ namespace OOP_Z5
         {
             ListTarget targets = new ListTarget();
             targets = ReadTargetsFromFile("../../../Folder/target.txt");
-
             Print(targets);
-
+            CheckUserShot(targets);
         }
 
         static ListTarget ReadTargetsFromFile(string line)
@@ -38,18 +37,22 @@ namespace OOP_Z5
 
         static void Print(ListTarget targets)
         {
+            int number = 1;
             foreach(var target in targets)
             {
+                Console.Write($"{number} ");
                 target.PrintTarget();
+                number++;
             }
         }
 
-        static void CheckUserShot()
+        static void CheckUserShot(ListTarget targets)
         {
+            int number = ReadUserChoice();
             Wind wind = ReadWindFromKeyboard();
             Shot shot = ReadShotFromKeyboard();
             Sustainability sustainability = new Sustainability(0, 0);
-
+            Console.WriteLine(targets[number-1].Shot(wind,sustainability,shot));
         }
         static Wind ReadWindFromKeyboard()
         {
@@ -63,6 +66,12 @@ namespace OOP_Z5
             double x = ReadUserCoordinate("Введите координату выстрела x");
             double y = ReadUserCoordinate("Введите координату выстрела y");
             return new Shot(x, y);
+        }
+
+        static int ReadUserChoice()
+        {
+            Console.WriteLine("Введите номер мешени");
+            return int.Parse(Console.ReadLine());
         }
         static double ReadUserCoordinate(string text)
         {

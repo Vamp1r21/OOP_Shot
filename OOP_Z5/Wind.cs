@@ -11,10 +11,24 @@ namespace OOP_Z5
         double _x;
         double _y;
 
+        public Wind()
+        {
+        }
+
         public Wind(double x, double y)
         {
             _x = x;
             _y = y;
+        }
+
+        public double GetX()
+        {
+            return _x;
+        }
+
+        public double GetY()
+        {
+            return _y;
         }
     }
 }

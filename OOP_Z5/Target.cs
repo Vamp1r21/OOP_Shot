@@ -21,12 +21,24 @@ namespace OOP_Z5
             _y = y;
         }
 
-        public string Shot(Wind wind, Sustainability sustainability)
+        public string Shot(Wind wind, Sustainability sustainability, Shot shot)
         {
-
-            return "";
+            double x = SumPoint(wind.GetX(), shot.GetX(), sustainability.GetX());
+            double y = SumPoint(wind.GetY(), shot.GetY(), sustainability.GetY());
+            if(x==_x && y==_y)
+            {
+                return "Вы попали в мишень";
+            }
+            else
+            {
+                return "Вы не попали в мишень";
+            }
         }
 
+        double SumPoint(double pointOne, double pointTwo, double pointThree)
+        {
+            return pointOne+pointTwo+pointThree;
+        }
         public void PrintTarget()
         {
             Console.WriteLine($"x:{_x}  y:{_y}");

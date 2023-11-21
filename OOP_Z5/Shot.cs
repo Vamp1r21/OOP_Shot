@@ -6,30 +6,25 @@ using System.Threading.Tasks;
 
 namespace OOP_Z5
 {
-    class Target
+    class Shot
     {
         double _x;
         double _y;
 
-        public Target()
-        {
-        }
-
-        public Target(double x, double y)
+        public Shot(double x, double y)
         {
             _x = x;
             _y = y;
         }
 
-        public string Shot(Wind wind, Sustainability sustainability)
+        public double GetX()
         {
-
-            return "";
+            return _x;
         }
 
-        public void PrintTarget()
+        public double GetY()
         {
-            Console.WriteLine($"x:{_x}  y:{_y}");
+            return _y;
         }
     }
 }

@@ -13,7 +13,9 @@ namespace OOP_Z5
         {
             ListTarget targets = new ListTarget();
             targets = ReadTargetsFromFile("../../../Folder/target.txt");
+
             Print(targets);
+
         }
 
         static ListTarget ReadTargetsFromFile(string line)
@@ -41,9 +43,30 @@ namespace OOP_Z5
                 target.PrintTarget();
             }
         }
-        static double ReadUserCoordinate(string coordinate)
+
+        static void CheckUserShot()
         {
-            Console.WriteLine($"Введите координату выстрела {coordinate}");
+            Wind wind = ReadWindFromKeyboard();
+            Shot shot = ReadShotFromKeyboard();
+            Sustainability sustainability = new Sustainability(0, 0);
+
+        }
+        static Wind ReadWindFromKeyboard()
+        {
+            double x = ReadUserCoordinate("Введите координату ветра x");
+            double y = ReadUserCoordinate("Введите координату ветра y");
+            return new Wind(x, y);
+        }
+
+        static Shot ReadShotFromKeyboard()
+        {
+            double x = ReadUserCoordinate("Введите координату выстрела x");
+            double y = ReadUserCoordinate("Введите координату выстрела y");
+            return new Shot(x, y);
+        }
+        static double ReadUserCoordinate(string text)
+        {
+            Console.WriteLine(text);
             return double.Parse(Console.ReadLine());
         }
     }
